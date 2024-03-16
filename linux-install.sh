@@ -17,7 +17,3 @@ tar -xzf liberica.tar.gz
 rm liberica.tar.gz
 mv bellsoft* $HOME/liberica/
 
-
-ls liberica/
-ls liberica/bin
-
