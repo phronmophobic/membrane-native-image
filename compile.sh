@@ -3,6 +3,9 @@
 set -e
 set -x
 
+which java
+java -version
+
 clojure -T:build:native-image compile
 
 # -H:ConfigurationFileDirectories=config \
