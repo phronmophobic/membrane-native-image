@@ -1,0 +1,24 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.12.0-alpha3"}
+        com.github.clj-easy/graal-build-time {:mvn/version "1.0.5"}
+        com.phronemophobic/membrane {;; :mvn/version "0.14.4-beta"
+                                     ;; :local/root "../membrane"
+                                     :git/sha "b04bbe291658d8883ef9741f517c7b6ddf756b75"
+                                     :git/url "https://github.com/phronmophobic/membrane"
+                                     }}
+
+
+ :aliases
+ {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.8.3" :git/sha "0d20256"}
+                 slipset/deps-deploy {:mvn/version "RELEASE"}}
+          :ns-default build}
+
+  :native-image {:jvm-opts ["-Dtech.v3.datatype.graal-native=true"
+                            "-Dclojure.compiler.direct-linking=true"
+                            "-Dclojure.spec.skip-macros=true"]}
+
+  :project
+  {
+   :jvm-opts ["-XX:+UnlockDiagnosticVMOptions"
+              "-XX:+DebugNonSafepoints"
+              "-XX:-HeapDumpOnOutOfMemoryError"]}}}

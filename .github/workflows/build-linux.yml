@@ -1,0 +1,28 @@
+name: Build Linx
+on:
+    workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Install liberica
+      run: ./linux-install.sh
+    - name: Setup Clojure
+      # You may pin to the exact commit or the version.
+      # uses: DeLaGuardo/setup-clojure@5042876523f30f5efcf1d6feaa48bd1498d7814f
+      uses: DeLaGuardo/setup-clojure@3.5
+      with:
+        # Clojure CLI version to make available on the path.
+        cli: 1.11.0.1100
+
+    - name: Load clojure dependencies
+      run: clojure -P
+    - name: prep clojure dependencies
+      run: clojure -X:deps prep 
+    - name: Compile
+      run: ./compile.sh
+
