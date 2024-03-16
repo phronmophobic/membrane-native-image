@@ -8,3 +8,8 @@ set -x
 wget -O liberica.deb https://download.bell-sw.com/vm/22.3.5/bellsoft-liberica-vm-core-openjdk11.0.22+12-22.3.5+1-linux-amd64.deb
 
 sudo apt install ./liberica.deb
+
+ls /opt/bellsoft/liberica-vm-22.3.5-openjdk11/bin
+ls /opt/bellsoft/
+
+echo 'export PATH=$PATH:/opt/bellsoft/liberica-vm-22.3.5-openjdk11/bin' >> ~/.bashrc
