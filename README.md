@@ -3,17 +3,17 @@
 
 ## Instructions
 
-### Setup
+## Setup
 
 
-#### Prep deps
+### Prep deps
 Git deps must be prepped
 
 ```sh
 clojure -X:deps prep 
 ```
 
-#### Install native image
+### Install native image
 
 These instructions have only been tested with liberica, but should theoretically work with graalvm on linux (but not mac osx).
 
@@ -21,13 +21,13 @@ Follow the instructions for installing native image:
 - Liberica https://docs.bell-sw.com/liberica-nik/22.3.5b1-11.0.22b12/general/install-guide/
 - graalvm https://github.com/graalvm/graalvm-ce-builds/releases
 
-### Compile
+## Compile
 
 ```sh
 ./compile.sh
 ```
 
-### Run
+## Run
 
 ```sh
 ./hello-world
