@@ -15,5 +15,5 @@ wget -O liberica.tar.gz https://download.bell-sw.com/vm/22.3.5/bellsoft-liberica
 tar -xzf liberica.tar.gz
 
 rm liberica.tar.gz
-mv liberica* liberica/
+mv bellsoft* liberica/
 
