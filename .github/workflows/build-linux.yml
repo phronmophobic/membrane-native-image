@@ -19,10 +19,10 @@ jobs:
         # Clojure CLI version to make available on the path.
         cli: 1.11.0.1100
 
-    - name: Load clojure dependencies
-      run: clojure -P
     - name: prep clojure dependencies
       run: clojure -X:deps prep 
+    - name: Load clojure dependencies
+      run: clojure -P
     - name: Compile
       run: ./compile.sh
 
