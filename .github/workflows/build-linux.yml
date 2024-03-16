@@ -12,6 +12,8 @@ jobs:
     - name: Install liberica
       run: ./linux-install.sh
     - name: Add liberica to path
+      run: echo "$HOME/liberica/bin" 
+    - name: Add liberica to path
       run: echo "$HOME/liberica/bin" >> $GITHUB_PATH
     - name: Setup Clojure
       # You may pin to the exact commit or the version.
