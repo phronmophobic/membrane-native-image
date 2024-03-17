@@ -1,5 +1,5 @@
 
-# Example of using membrane's java2d backend with membrane.
+# Example of using membrane's java2d backend with native-image.
 
 ## Instructions
 
