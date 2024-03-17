@@ -25,6 +25,8 @@ jobs:
       run: clojure -X:deps prep 
     - name: Load clojure dependencies
       run: clojure -P
+    - name: Config
+      run: ./config.sh
     - name: Compile
       run: ./compile.sh
     - name: Run

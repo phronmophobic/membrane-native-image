@@ -1,5 +1,7 @@
 (ns build
   (:require [clojure.tools.build.api :as b]
+            [clojure.data.json :as json]
+            [clojure.java.io :as io]
             [clojure.string :as str]))
 
 (def lib 'com.phronemophobic.membrane/native-image)
@@ -26,18 +28,30 @@
             :basis basis
             :javac-opts ["-source" "8" "-target" "8"]}))
 
+(defn fix-reflect-config [f]
+  (let [config (with-open [rdr (io/reader f)]
+                 (json/read rdr))
+        new-config (->> config
+                        (remove (fn [{:strs [name]}]
+                                  (str/ends-with? name "__init"))))]
+    (with-open [w (io/writer f)]
+      (json/write new-config w))))
+
+(defn fix-config [_]
+  (fix-reflect-config (io/file "config" "reflect-config.json")))
+
 #_(defn jar [opts]
-  (compile opts)
-  (b/write-pom {:class-dir class-dir
-                :src-pom src-pom
-                :lib lib
-                :version version
-                :basis basis
-                :src-dirs ["src"]})
-  (b/copy-dir {:src-dirs ["src" "resources"]
-               :target-dir class-dir})
-  (b/jar {:class-dir class-dir
-          :jar-file jar-file}))
+    (compile opts)
+    (b/write-pom {:class-dir class-dir
+                  :src-pom src-pom
+                  :lib lib
+                  :version version
+                  :basis basis
+                  :src-dirs ["src"]})
+    (b/copy-dir {:src-dirs ["src" "resources"]
+                 :target-dir class-dir})
+    (b/jar {:class-dir class-dir
+            :jar-file jar-file}))
 
 #_(defn deploy [opts]
   (jar opts)
