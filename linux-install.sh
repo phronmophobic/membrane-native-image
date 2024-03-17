@@ -3,7 +3,7 @@
 set -e
 set -x
 
-sudo apt install g++ make zlib1g-dev
+sudo apt install g++ make zlib1g-dev xvfb
 
 # liberica
 wget -O liberica.tar.gz https://download.bell-sw.com/vm/23.1.2/bellsoft-liberica-vm-core-openjdk21.0.2+14-23.1.2+1-linux-amd64.tar.gz

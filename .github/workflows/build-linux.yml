@@ -30,6 +30,6 @@ jobs:
     - name: Compile
       run: ./compile.sh
     - name: Run
-      run: ./hello-world
+      run: xvfb-run ./hello-world
       # run: ./hello-world -Djava.home="$HOME/graalvm/"
 
