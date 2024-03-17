@@ -8,10 +8,11 @@ java -version
 
 clojure -T:build:native-image compile
 
-# -H:ConfigurationFileDirectories=config \
+
 native-image \
     -cp "$(clojure -Spath):target/classes" \
     -H:Name=hello-world \
+    -H:ConfigurationFileDirectories=config \
     -Djava.awt.headless=false \
     -H:+ReportExceptionStackTraces \
     -J-Dclojure.spec.skip-macros=true \

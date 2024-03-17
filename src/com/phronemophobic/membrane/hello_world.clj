@@ -6,11 +6,13 @@
   (:gen-class))
 
 (defn -main [& _args]
+
   (println
-   (ui/bounds
-    ((membrane.component/make-app
-      #'td/todo-app
-      td/todo-state))))
+   (str
+    (ui/bounds
+     ((membrane.component/make-app
+       #'td/todo-app
+       td/todo-state)))))
   #_(java2d/run
       (membrane.component/make-app
        #'td/todo-app
