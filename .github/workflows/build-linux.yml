@@ -27,4 +27,6 @@ jobs:
       run: clojure -P
     - name: Compile
       run: ./compile.sh
+    - name: Run
+      run: ./hello-world
 
